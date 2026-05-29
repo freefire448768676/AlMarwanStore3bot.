@@ -1,16 +1,17 @@
 const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+// هاد السطر بحل مشكلة 404
 app.get('/', (req, res) => {
-  res.send('البوت صاحي 24 ساعة 🔥');
+  res.status(200).send('Bot is alive');
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`السيرفر شغال على بورت ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 
-// كل 5 دقايق يضرب حاله لحتى Render ما ينيمه
+// تصحية كل 5 دقايق
 setInterval(() => {
-  console.log('Ping: السيرفر صاحي');
+  fetch(`http://localhost:${PORT}/`).catch(() => {});
 }, 300000);
