@@ -1,6 +1,6 @@
-import type { Telegraf, Context } from "telegraf";
+import { Telegraf, Context } from "telegraf";
 import { Markup } from "telegraf";
-import type { InlineKeyboardButton } from "telegraf/types";
+import { InlineKeyboardButton } from "telegraf/types";
 import { eq, desc, sql, and } from "drizzle-orm";
 import {
   db,
